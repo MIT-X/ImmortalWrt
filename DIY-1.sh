@@ -1,9 +1,13 @@
-# 此脚本用处是：添加第三方插件
-# =============================================================
+# 1-SSR插件
+echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.default
 
-# 1-添加插件仓库
-echo 'src-git kenzo https://github.com/kenzok8/openwrt-packages' >>feeds.conf.default
-echo 'src-git small https://github.com/kenzok8/small' >>feeds.conf.default
+# 2-关机插件
+git clone https://github.com/WukongMaster/luci-app-poweroffdevice.git package/luci-app-poweroffdevice
 
-# rm -rf feeds/packages/lang/golang
-# git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
+# 3-系统主题
+git clone https://github.com/jerrykuku/luci-theme-argon.git  package/luci-theme-argon
+git clone https://github.com/WukongMaster/luci-theme-teleofis.git package/luci-theme-teleofis
+
+# 4-添加 PassWall2 插件
+# echo "src-git passwall2 https://github.com/xiaorouji/openwrt-passwall2.git;main" >> "feeds.conf.default"
+# echo "src-git passwall_packages https://github.com/xiaorouji/openwrt-passwall-packages.git;main" >> "feeds.conf.default"

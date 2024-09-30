@@ -4,6 +4,9 @@ on:
   repository_dispatch:
   workflow_dispatch:
 
+  schedule:
+    - cron: 1 4 * * 5
+
 env:
   REPO_URL: https://github.com/immortalwrt/immortalwrt
   REPO_BRANCH: openwrt-23.05
@@ -23,6 +26,16 @@ jobs:
     
     - name: 检查项目分支
       uses: actions/checkout@main
+
+    - name: 清理磁盘空间
+      uses: jlumbroso/free-disk-space@main
+      with:
+        tool-cache: true        
+        android: true
+        dotnet: true
+        haskell: true
+        large-packages: true
+        swap-storage: true
       
     - name: 查看机器配置
       run: |
